@@ -1,9 +1,22 @@
+import { InjectionToken } from '@angular/core';
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+export const delApiServicesToken = new InjectionToken('delServiceApiToken');
+
 export const environment = {
-  production: false
+  production: false,
+
+  delApiServices: {
+    delApiUrl: 'http://localhost',
+    delApiPort: '3050',
+    delApiVersion: 'api/v1',
+    application: {
+      allApplicationDetails: 'application',
+    },
+    auth: 'auth'
+  }
 };
 
 /*
