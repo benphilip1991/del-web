@@ -15,7 +15,10 @@ export const environment = {
     application: {
       allApplicationDetails: 'application',
     },
-    auth: 'auth'
+    authApi: 'auth',
+    userApi: 'user',
+    applicationApi: 'application',
+    userApplication: 'userApplication'
   }
 };
 

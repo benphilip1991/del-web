@@ -1,10 +1,10 @@
-import { credentials } from './../../utils/app-constants.utils';
-import { httpMessages } from '@app/utils/app-constants.utils';
+import { Utils } from '@utils/common.utils';
+import { credentials } from '@utils/app-constants.utils';
 import { delApiServicesToken } from '@env/environment';
 import { Inject, Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators'
-import { Observable, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 
 // Either include in the providers array in the module
 // or annotate this class as an injectable object to be provided
@@ -18,6 +18,7 @@ export class AuthenticationService {
   // Inject delApiServices declared in the module
   constructor(
     @Inject(delApiServicesToken) private delApiServices,
+    public utils: Utils,
     private http: HttpClient) { }
 
   /**
@@ -32,7 +33,7 @@ export class AuthenticationService {
     return serviceBase.delApiUrl + ':'
       + serviceBase.delApiPort + '/'
       + serviceBase.delApiVersion + '/'
-      + serviceBase.auth;
+      + serviceBase.authApi;
   }
 
   /**
@@ -51,7 +52,7 @@ export class AuthenticationService {
       .pipe(map((response) => {
         return response;
       }),
-        catchError(this.handleError)
+        catchError(this.utils.handleError)
       );
 
     return tokenObservable;
@@ -73,28 +74,12 @@ export class AuthenticationService {
       .pipe(map((response) => {
         return response;
       }),
-        catchError(this.handleError)
+        catchError(this.utils.handleError)
       );
 
     return tokenDetailsObservable;
   }
 
-  /**
-   * Hnadle errors on http calls to the auth API
-   * This handler is valid for both the POST and GET APIs
-   * 
-   * @param error 
-   */
-  private handleError(error: HttpErrorResponse) {
-    console.log(error.message);
-
-    if (error.status === httpMessages.CLIENT_ERRORS.BAD_REQUEST.httpCode
-      || error.status === httpMessages.CLIENT_ERRORS.UNAUTHORIZED.httpCode) {
-      return throwError(httpMessages.CLIENT_ERRORS.UNAUTHORIZED.responseMessageInvalidCreds);
-    } else {
-      return throwError(httpMessages.genericErrorMessage);
-    }
-  }
 
   /**
    * Set credentials and token in local storage
@@ -102,9 +87,10 @@ export class AuthenticationService {
    * @param token 
    * @param isLoggedIn 
    */
-  setCredentials(token?: string, userRole?: string) {
+  setCredentials(token?: string, userRole?: string, userId?: string) {
     localStorage.setItem(credentials.TOKEN, token);
     localStorage.setItem(credentials.ROLE, userRole);
+    localStorage.setItem(credentials.USERID, userId);
   }
   
   /**
@@ -113,6 +99,7 @@ export class AuthenticationService {
   clearCredentials() {
     localStorage.removeItem(credentials.TOKEN);
     localStorage.removeItem(credentials.ROLE);
+    localStorage.removeItem(credentials.USERID);
   }
 }
 

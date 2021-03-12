@@ -53,5 +53,6 @@ export const httpMessages = {
 
 export const credentials = {
     TOKEN: "token",
-    ROLE: "userRole"
+    ROLE: "userRole",
+    USERID: "userId"
 }

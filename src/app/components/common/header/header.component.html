@@ -1,0 +1,19 @@
+<div *ngIf="isLoggedIn">
+    <div class="header">
+
+        <!-- Drop down for showing options and a logout button-->
+        <div class="inner-header">
+            <div class="logo-container">
+                <h2>DEL Service Management</h2>
+            </div>
+            <div class="dropdown">
+                <mat-form-field>
+                    <mat-label>{{ userName }}</mat-label>
+                    <mat-select>
+                        <mat-option (click)="performLogout()">Logout</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+// Fonts
+$font-primary: 'Montserrat', sans-serif;
+
+// Colors
+$color-text-dark: #5c5c5c;
+$color-text-primary: #02899B;
+$color-text-primary-light: #00B0C2;
+$color-text-primary-dark: #063b42;
+$color-text-white: #ffffff;
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+
+    font-family: $font-primary;
+}
+
+.header {
+    width: 100%;
+    height: 80px;
+    display: block;
+    background-color:$color-text-primary-dark;
+    z-index: 1;
+
+    .inner-header {
+
+        width: 90%;
+        height: 100%;
+        display: block;
+        margin: 0 auto;
+
+        .logo-container {
+            height: 100%;
+            display: table;
+            float: left;
+
+            h2 {
+                color: $color-text-white;
+                height: 100%;
+                display: table-cell;
+                vertical-align: middle;
+                font-family: $font-primary;
+            }
+        }
+
+        .dropdown {
+            height: 100%;
+            display: table;
+            float: right;
+
+            mat-form-field {
+                height: 100%;
+                display: table-cell;
+                vertical-align: middle;
+                
+                mat-label {
+                    font-family: $font-primary;
+                    color: $color-text-white;
+                }
+            }
+        }
+    }
+    
+}

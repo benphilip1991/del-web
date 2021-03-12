@@ -1,3 +1,4 @@
+import { SidebarComponent } from '@components/common/sidebar/sidebar.component';
 import { credentials } from './../../utils/app-constants.utils';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '@app/services/auth/authentication.service';
@@ -10,6 +11,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  private _isLoggedIn: boolean;
+
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router
@@ -19,32 +22,39 @@ export class HomeComponent implements OnInit {
     this.verifyLoginState();
   }
 
-   /**
-   * If a token is found, validate it and proceed
-   * 
-   * @param token 
+  /**
+  * If a token is found, validate it and proceed
+  * 
+  * @param token 
+  */
+  verifyUserToken(token: string) {
+
+    this.authenticationService.verifyTokenDetails(token).subscribe(
+      (response) => {
+        this._isLoggedIn = true;
+      }, (error) => {
+        console.log(error)
+        this.authenticationService.clearCredentials();
+        this._isLoggedIn = false;
+
+        // Navigate to login form if creds check fails
+        this.router.navigate(['/'])
+      }
+    )
+  }
+
+  /**
+   * Called on Init to check user login state.
+   * If authenticated, redirect to home page
    */
-    verifyUserToken(token: string) {
+  verifyLoginState() {
+    this.verifyUserToken(localStorage.getItem(credentials.TOKEN));
+  }
 
-      this.authenticationService.verifyTokenDetails(token).subscribe(
-        (response) => {
-          // No need to do anything
-          
-        }, (error) => {
-          console.log(error)
-          this.authenticationService.clearCredentials();
-
-          // Navigate to login form if creds check fails
-          this.router.navigate(['/'])
-        }
-      )
-    }
-  
-    /**
-     * Called on Init to check user login state.
-     * If authenticated, redirect to home page
-     */
-    verifyLoginState() {
-      this.verifyUserToken(localStorage.getItem(credentials.TOKEN));
-    }
+  /**
+   * Component accessors
+   */
+  get isLoggedIn() {
+    return this._isLoggedIn;
+  }
 }

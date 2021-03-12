@@ -30,7 +30,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
     // Verify login state and proceed to home if logged in
-    this.verifyLoginState();
+    if (localStorage.getItem(credentials.TOKEN)) {
+      this.verifyLoginState();
+    } else {
+      this.authenticationService.clearCredentials();
+      this._isLoginSuccess = false;
+    }
+
 
     // Use FormGroup or FormBuilder. FormGroup can be created here, but will tightly couple it
     // with the component.
@@ -71,11 +77,10 @@ export class LoginComponent implements OnInit {
    * @param token 
    */
   verifyUserToken(token: string) {
-
     this.authenticationService.verifyTokenDetails(token).subscribe(
       (response) => {
         this._isLoginSuccess = true;
-        this.authenticationService.setCredentials(token, response.userRole);
+        this.authenticationService.setCredentials(token, response.userRole, response.userId);
 
         // Navigate to the home page on successful authentication
         this.router.navigate(['/home'])
@@ -84,7 +89,7 @@ export class LoginComponent implements OnInit {
         this.authenticationService.clearCredentials();
         this._isLoginSuccess = false;
       }
-    )
+    );
   }
 
   /**

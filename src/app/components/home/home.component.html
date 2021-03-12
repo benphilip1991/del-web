@@ -1,1 +1,4 @@
-<p>home works!</p>
+<div *ngIf="isLoggedIn">
+    <app-header [loggedIn]="isLoggedIn"></app-header>
+    <app-sidebar [loggedIn]="isLoggedIn"></app-sidebar>
+</div>
