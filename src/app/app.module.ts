@@ -18,6 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import { delApiServicesToken, environment } from '@env/environment';
 import { HomeComponent } from './components/home/home.component';
 import { AppHeaderComponent } from './components/common/header/header.component';
@@ -37,6 +39,7 @@ import { SidebarComponent } from './components/common/sidebar/sidebar.component'
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FontAwesomeModule,
     RouterModule.forRoot([
       { path: '', component: LoginComponent }
     ])

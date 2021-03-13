@@ -1,0 +1,16 @@
+<div class="sidebar" *ngIf="isLoggedIn">
+    <div class="sidebar-container">
+        <ul>
+            <li>
+                <div class="sidebar-element" id="user" (click)="toggleView($event)" [ngClass]="selectedElem == 'user' ? 'active' : ''" *ngIf="userRole == 'admin' || userRole == 'caregiver'">
+                    <fa-icon [icon]="user"></fa-icon> &nbsp;&nbsp; Users
+                </div>
+            </li>
+            <li>
+                <div class="sidebar-element" id="app" (click)="toggleView($event)" [ngClass]="selectedElem == 'app' ? 'active' : ''">
+                    <fa-icon [icon]="application"></fa-icon> &nbsp;&nbsp; Applications
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
