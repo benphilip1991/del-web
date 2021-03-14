@@ -1,41 +1,43 @@
-<div class="login-form" *ngIf="!isLoginSuccess">
-    <section class='wrapper'>
-        <mat-card>
-            <!-- To capture form data, we need to capture a handle to the form
+<div class="body">
+    <div class="login-form" *ngIf="!isLoginSuccess">
+        <section class='wrapper'>
+            <mat-card>
+                <!-- To capture form data, we need to capture a handle to the form
             angular creates. For this case, it's #loginForm and is assigned ngForm. 
             Angular will export a form group object into this variable for us, which 
             is the model Angular uses for the form -->
-            <form [formGroup]="form" (ngSubmit)="userLogin(form.value)">
-                <header>
-                    <mat-label>
-                        <h2>User Login</h2>
-                    </mat-label>
-                </header>
+                <form [formGroup]="form" (ngSubmit)="userLogin(form.value)">
+                    <header>
+                        <mat-label>
+                            <h2>User Login</h2>
+                        </mat-label>
+                    </header>
 
-                <section class="main-content">
-                    <input matInput placeholder="Email" formControlName="email">
-                    <div class="line"></div>
-                    <input matInput type="password" placeholder="Password" formControlName="password">
-                    <br>
-                    <button mat-raised-button type="submit" [disabled]="!form.valid">Login</button>
-                    <br>
-                </section>
+                    <section class="main-content">
+                        <input matInput placeholder="Email" formControlName="email">
+                        <div class="line"></div>
+                        <input matInput type="password" placeholder="Password" formControlName="password">
+                        <br>
+                        <button mat-raised-button type="submit" [disabled]="!form.valid">Login</button>
+                        <br>
+                    </section>
 
-                <!-- Warnings -->
-                <div *ngIf="!isLoginSuccess">
-                    <span id="warning">{{ errorMessage }}</span>
-                </div>
+                    <!-- Warnings -->
+                    <div *ngIf="!isLoginSuccess">
+                        <span id="warning">{{ errorMessage }}</span>
+                    </div>
 
-                <!-- Link for creating a new account - replace panel with reg. -->
-                <footer>
-                    <mat-label>
-                        <p>Register</p>
-                    </mat-label>
-                    <mat-label>
-                        <p>Forgot Password?</p>
-                    </mat-label>
-                </footer>
-            </form>
-        </mat-card>
-    </section>
+                    <!-- Link for creating a new account - replace panel with reg. -->
+                    <footer>
+                        <mat-label>
+                            <p>Register</p>
+                        </mat-label>
+                        <mat-label>
+                            <p>Forgot Password?</p>
+                        </mat-label>
+                    </footer>
+                </form>
+            </mat-card>
+        </section>
+    </div>
 </div>

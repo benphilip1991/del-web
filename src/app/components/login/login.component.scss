@@ -8,6 +8,15 @@ $color-text-dark: #5c5c5c;
 $color-text-primary: #02899B;
 $color-text-primary-light: #00B0C2;
 
+$color-bg-primary: #0a606b8e;
+$color-bg-primary-light: #00afc2b2;
+
+.body {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top right, $color-bg-primary-light, $color-bg-primary);
+}
+
 .login-form {
     font-family: $font-primary;
 

@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
-import { credentials } from '@utils/app-constants.utils';
+import { credentials, userRoles } from '@utils/app-constants.utils';
 import { AuthenticationService } from '@app/services/auth/authentication.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { faUser, faCubes, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -12,6 +12,7 @@ import { faUser, faCubes, IconDefinition } from '@fortawesome/free-solid-svg-ico
 export class SidebarComponent implements OnInit {
 
   @Input('loggedIn') private _isLoggedIn: boolean;
+  @Output() private sidebarMenuSelectionEvent = new EventEmitter<string>();
 
   // FA Icons
   user: IconDefinition = faUser;
@@ -40,6 +41,7 @@ export class SidebarComponent implements OnInit {
    */
   toggleView(event) {
     this._selectedElem = event.currentTarget.id;
+    this.sidebarMenuSelectionEvent.emit(this._selectedElem);
   }
 
   /**
@@ -53,9 +55,12 @@ export class SidebarComponent implements OnInit {
         this._userRole = response.userRole;
 
         // Set default active element Applications - users can't see other users
-        if(response.userRole === 'patient' || response.userRole === 'developer') {
+        if(response.userRole === userRoles.PATIENT || response.userRole === userRoles.DEVELOPER) {
           this._selectedElem = 'app'
+        } else {
+          this._selectedElem = 'user'
         }
+        this.sidebarMenuSelectionEvent.emit(this._selectedElem);
       }, (error) => {
         this.authService.clearCredentials();
         this.router.navigate(['/login']);

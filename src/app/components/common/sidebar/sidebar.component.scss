@@ -4,13 +4,16 @@
 $font-primary: 'Montserrat', sans-serif;
 
 // Colors
-$color-text-dark: #b6b3b3;
+$color-text-dark: #a1a0a0;
 $color-text-white: #ffffff;
 
 $color-sidebar-bg: #066981;
 
 .sidebar {
-    width: 300px;
+    float: left;
+    min-width: 300px;
+    max-width: 400px;
+    width: 25%;
     height: 100vh;
     background-color: $color-sidebar-bg;
 
@@ -32,15 +35,12 @@ $color-sidebar-bg: #066981;
             font-family: $font-primary;
             font-size: 15pt;
             
-            width: 100vw;
             margin: 20px;
             cursor: pointer;
         }
 
         .active {
             color: $color-text-white;
-            font-size: 15pt;
-            font-weight: bolder;
         }
     }
 }

@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+// Fonts
+$font-primary: 'Montserrat', sans-serif;
+
+// Colors
+$color-text-dark: #a1a0a0;
+$color-text-white: #ffffff;
+
+$color-sidebar-bg: #066981;
+
+.dashboard {
+    width: 100%;
+    height: 100vh;
+
+    padding: 20px;
+}

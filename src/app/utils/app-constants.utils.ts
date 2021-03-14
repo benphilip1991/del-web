@@ -51,8 +51,21 @@ export const httpMessages = {
     genericErrorMessage: 'Request failed. Please try again later!'
 }
 
+/**
+ * Credential elements
+ */
 export const credentials = {
     TOKEN: "token",
     ROLE: "userRole",
     USERID: "userId"
+}
+
+/**
+ * User roles set in the del-api service.
+ */
+export const userRoles = {
+    ADMIN: 'admin',
+    CAREGIVER: 'caregiver',
+    DEVELOPER: 'developer',
+    PATIENT: 'patient'
 }

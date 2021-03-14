@@ -1,4 +1,3 @@
-import { SidebarComponent } from '@components/common/sidebar/sidebar.component';
 import { credentials } from './../../utils/app-constants.utils';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '@app/services/auth/authentication.service';
@@ -12,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   private _isLoggedIn: boolean;
+  private _selectedDashboard: string;
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -44,6 +44,15 @@ export class HomeComponent implements OnInit {
   }
 
   /**
+   * Switch to the dashboard selected in the sidebar
+   * 
+   * @param dashboardName 
+   */
+  switchDashboard(dashboardName: string) {
+    this._selectedDashboard = dashboardName;
+  }
+
+  /**
    * Called on Init to check user login state.
    * If authenticated, redirect to home page
    */
@@ -56,5 +65,9 @@ export class HomeComponent implements OnInit {
    */
   get isLoggedIn() {
     return this._isLoggedIn;
+  }
+
+  get selectedDashboard() {
+    return this._selectedDashboard; 
   }
 }
