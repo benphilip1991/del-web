@@ -24,6 +24,8 @@ import { delApiServicesToken, environment } from '@env/environment';
 import { HomeComponent } from './components/home/home.component';
 import { AppHeaderComponent } from './components/common/header/header.component';
 import { SidebarComponent } from './components/common/sidebar/sidebar.component';
+import { UsersDashboardComponent } from './components/users-dashboard/users-dashboard.component';
+import { AppDashboardComponent } from './components/app-dashboard/app-dashboard.component';
 
 
 @NgModule({
@@ -49,7 +51,9 @@ import { SidebarComponent } from './components/common/sidebar/sidebar.component'
     LoginComponent,
     HomeComponent,
     AppHeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    UsersDashboardComponent,
+    AppDashboardComponent
   ],
   // Not required if using @Injectable but adding for readability
   providers: [
