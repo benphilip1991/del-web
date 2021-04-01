@@ -9,7 +9,6 @@ import { UserService } from '@app/services/user/user.service';
   styleUrls: ['./add-user-dialogue.component.scss']
 })
 export class AddUserDialogueComponent implements OnInit {
-
     profileForm = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
@@ -21,21 +20,17 @@ export class AddUserDialogueComponent implements OnInit {
   });
   
   constructor(private userService : UserService,
-    public dialogRef: MatDialogRef<AddUserDialogueComponent>) { 
-
-  }
-
-
-  ngOnInit(): void {
-  }
+    public dialogRef: MatDialogRef<AddUserDialogueComponent>) { }
+  ngOnInit(): void {}
+  //add new user to user list
   adduser(){
     //type conversion for age from string to int
   const formvalue={...this.profileForm.value,age:parseInt(this.profileForm.value.age)}
     this.userService.addUserDeatils(formvalue).subscribe(
       (response) => {
-              console.log('in adduser function',+response);
               this.dialogRef.close(response);
       }, (error) => {
+        console.log("Error"+Response);
       }
       );
   }
