@@ -27,14 +27,23 @@ import { SidebarComponent } from './components/common/sidebar/sidebar.component'
 import { UsersDashboardComponent } from './components/users-dashboard/users-dashboard.component';
 import { AppDashboardComponent } from './components/app-dashboard/app-dashboard.component';
 
+ import { MatTableModule } from '@angular/material/table';
+ import { MatDialogModule } from '@angular/material/dialog';
+import { UserProfileDialogueComponent } from './components/common/user-profile-dialogue/user-profile-dialogue.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddUserDialogueComponent } from './components/common/add-user-dialogue/add-user-dialogue.component';
+
 
 @NgModule({
   imports: [
     BrowserModule,
+    NgbModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatTableModule,
+    MatDialogModule,
     MatButtonModule,
     MatCardModule,
     MatSelectModule,
@@ -53,7 +62,9 @@ import { AppDashboardComponent } from './components/app-dashboard/app-dashboard.
     AppHeaderComponent,
     SidebarComponent,
     UsersDashboardComponent,
-    AppDashboardComponent
+    AppDashboardComponent,
+    UserProfileDialogueComponent,
+    AddUserDialogueComponent
   ],
   // Not required if using @Injectable but adding for readability
   providers: [

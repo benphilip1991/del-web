@@ -35,6 +35,15 @@ export class UserService {
       + serviceBase.userApi + '/'
       + userId;
   }
+   getUserUrl(): string {
+
+    let serviceBase = this.delApiServices;
+
+    return serviceBase.delApiUrl + ':'
+      + serviceBase.delApiPort + '/'
+      + serviceBase.delApiVersion + '/'
+      + serviceBase.userApi;
+  }
 
   /**
    * Fetch user details using userId. The token can be fetched
@@ -63,6 +72,68 @@ export class UserService {
     );
     return userObservable;
   }
+  //get all user list by giving the bearer token
+  getUserList(token?: string): Observable<UsersList> { 
+    if (null == token) {
+      token = localStorage.getItem(credentials.TOKEN);
+    }
+
+    let options = {
+      headers: new HttpHeaders({
+        'authorization': `Bearer ${token}`
+      })
+    }
+
+    let userObservable = this.http.get<UsersList>(this.getUserUrl(), options)
+      .pipe(map((response) => {
+        return response;
+      }),
+      catchError(this.utils.handleError)  
+    );
+    console.log('in getUserList function service',+userObservable);
+    return userObservable;
+  }
+  // delete the user list from user record
+  removeUser(userId: string, token?: string): Observable<string> {
+    if (null == token) {
+      token = localStorage.getItem(credentials.TOKEN);
+    }
+
+    let options = {
+      headers: new HttpHeaders({
+        'authorization': `Bearer ${token}`
+      })
+    }
+
+    let userObservable = this.http.delete<string>(this.getApiUrl(userId), options)
+      .pipe(map((response) => {
+        return response;
+      }),
+      catchError(this.utils.handleError)  
+    );
+    return userObservable;
+  }
+//add new user 
+   addUserDeatils(userDetails: any,token?: string): Observable<any> {
+    if (null == token) {
+      token = localStorage.getItem(credentials.TOKEN);
+    }
+
+    let options = {
+      headers: new HttpHeaders({
+        'authorization': `Bearer ${token}`
+      })
+    }
+
+    let userObservable = this.http.post<any>(this.getUserUrl(),userDetails, options)
+      .pipe(map((response) => {
+        return response;
+      }),
+      catchError(this.utils.handleError)  
+    );
+    console.log('in adduser details function service',+userObservable);
+    return userObservable;
+  }
 }
 
 /**
@@ -77,4 +148,13 @@ interface UserDetails {
   age: number,
   sex: string,
   userRole: string
+}
+
+/**
+ * 
+ */
+interface UsersList {
+  users: [
+    UserDetails
+  ]
 }

@@ -1,0 +1,59 @@
+table {
+       border-collapse: collapse;
+       border-spacing: 60px 50rem;
+     }
+            th {
+                background-color: #066981;
+                Color:white;
+            }
+            th, td {
+                width:450px;
+                height: 65px;
+                text-align:center;
+                border:1px solid whitesmoke ;
+                padding:1px;
+                font-size: 17px;
+              
+            }
+.button {
+  background-color: #066981;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+}    
+.button1 {
+  background-color: #af4c4c;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+}       
+.button2 {
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+}   
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff; 
+     background-color: #007bff; 
+     border-color: #007bff; 
+}

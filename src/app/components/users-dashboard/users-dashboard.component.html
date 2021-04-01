@@ -1,1 +1,23 @@
-<p>users-dashboard works!</p>
+<div>
+    <div>
+        <button style="float: right;margin-top: 40px;margin-right:200px;"  class="button2" (click) = "addUser()">AddUser</button>
+    </div>
+    <div style="float:left;margin-top: 80px;margin-left:12%;">
+        <table>
+            <tr>
+                <th>User</th>
+                <th> Action</th>
+            </tr>
+        </table>
+        <br>
+        <table>
+            <tr *ngFor="let user of Users | slice: (page-1) * pageSize : page * pageSize">
+                <td> {{user.firstName}}</td>
+                <td> <button  class="button" (click)="showProfile(user)">Profile</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="button1" (click)="removeuser(user._id)">Remove</button>
+                </td>
+            </tr>
+        </table>
+        <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="Users.length"></ngb-pagination>
+    </div>
+</div>
