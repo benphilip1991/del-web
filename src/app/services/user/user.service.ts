@@ -3,7 +3,6 @@ import { Utils } from '@utils/common.utils';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { delApiServicesToken } from './../../../environments/environment';
 import { Inject, Injectable } from '@angular/core';
-
 import { map, catchError } from 'rxjs/operators'; 
 import { Observable } from 'rxjs';
 
@@ -11,7 +10,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-
   constructor(
     @Inject(delApiServicesToken) private delApiServices,
     public utils: Utils,
@@ -90,7 +88,6 @@ export class UserService {
       }),
       catchError(this.utils.handleError)  
     );
-    console.log('in getUserList function service',+userObservable);
     return userObservable;
   }
   // delete the user list from user record
@@ -131,7 +128,6 @@ export class UserService {
       }),
       catchError(this.utils.handleError)  
     );
-    console.log('in adduser details function service',+userObservable);
     return userObservable;
   }
 }

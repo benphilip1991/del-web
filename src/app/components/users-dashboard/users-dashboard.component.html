@@ -1,8 +1,8 @@
 <div>
     <div>
-        <button style="float: right;margin-top: 40px;margin-right:200px;"  class="button2" (click) = "addUser()">AddUser</button>
+        <button class="buttonadduser" (click) = "addUser()">AddUser</button>
     </div>
-    <div style="float:left;margin-top: 80px;margin-left:12%;">
+    <div class="tablestyle">
         <table>
             <tr>
                 <th>User</th>
@@ -13,8 +13,8 @@
         <table>
             <tr *ngFor="let user of Users | slice: (page-1) * pageSize : page * pageSize">
                 <td> {{user.firstName}}</td>
-                <td> <button  class="button" (click)="showProfile(user)">Profile</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button class="button1" (click)="removeuser(user._id)">Remove</button>
+                <td> <button  class="buttonshowprofile" (click)="showProfile(user)">Profile</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="buttonremoveuser" (click)="removeuser(user._id)">Remove</button>
                 </td>
             </tr>
         </table>

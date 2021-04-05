@@ -1,21 +1,20 @@
 table {
-       border-collapse: collapse;
-       border-spacing: 60px 50rem;
-     }
-            th {
-                background-color: #066981;
-                Color:white;
-            }
-            th, td {
-                width:450px;
-                height: 65px;
-                text-align:center;
-                border:1px solid whitesmoke ;
-                padding:1px;
-                font-size: 17px;
-              
-            }
-.button {
+  border-collapse: collapse;
+  border-spacing: 60px 50rem;
+}
+th {
+  background-color: #066981;
+  Color:white;
+}
+th, td {
+  width:450px;
+  height: 65px;
+  text-align:center;
+  border:1px solid whitesmoke ;
+  padding:1px;
+  font-size: 17px; 
+}
+.buttonshowprofile {
   background-color: #066981;
   border: none;
   color: white;
@@ -27,7 +26,7 @@ table {
   margin: 4px 2px;
   cursor: pointer;
 }    
-.button1 {
+.buttonremoveuser {
   background-color: #af4c4c;
   border: none;
   color: white;
@@ -39,7 +38,7 @@ table {
   margin: 4px 2px;
   cursor: pointer;
 }       
-.button2 {
+.buttonadduser {
   background-color: white;
   border: none;
   color: black;
@@ -50,10 +49,17 @@ table {
   font-size: 14px;
   margin: 4px 2px;
   cursor: pointer;
+  margin-top: 40px;
+  margin-right:200px;
 }   
 .page-item.active .page-link {
-    z-index: 3;
-    color: #fff; 
-     background-color: #007bff; 
-     border-color: #007bff; 
+  z-index: 3;
+  color: #fff; 
+  background-color: #007bff; 
+  border-color: #007bff; 
+}
+.tablestyle{
+  float:left;
+  margin-top: 80px;
+  margin-left:12%;
 }

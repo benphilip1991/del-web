@@ -26,7 +26,6 @@ export class UsersDashboardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log('In init funtion');
     this.getUserList();
   }
   //show user list in user profile dialogue
@@ -37,45 +36,41 @@ export class UsersDashboardComponent implements OnInit {
     data: {
       user: user
     }
-  });
+    });
   }
   //get all user list 
-    getUserList() {
-      this.userService.getUserList().subscribe(
-      (response) => {
-       this.Users = response.users;
-        console.log('in getUserList function',+this.Users);
-      }, (error) => {
-      }
+  getUserList() {
+    this.userService.getUserList().subscribe(
+    (response) => {
+      this.Users = response.users;
+    }, (error) => {
+    }
   
     );
   }
   // delete the user from the seleted user id
   removeuser(userId){
-     this.userService.removeUser(userId).subscribe(
-      (response) => {
-       console.log('in removeuser function',+response);
-       this.Users = this.Users.filter(user => user._id !== userId) 
-      }, (error) => {
-      }
+    this.userService.removeUser(userId).subscribe(
+    (response) => {
+     this.Users = this.Users.filter(user => user._id !== userId) 
+    }, (error) => {
+    }
     );
   }
   //add user detail 
   addUser(){
-      let dialogRef = this.dialog.open(AddUserDialogueComponent, {
+    let dialogRef = this.dialog.open(AddUserDialogueComponent, {
     height: '640px',
     width: '600px',
-  });
-  dialogRef.afterClosed().subscribe(result => {
-    console.log(`Dialog result: ${result}`); 
+    });
+    dialogRef.afterClosed().subscribe(result => {
     if(!!result){
       this.getUserList();
     }
-  });
-    }
-
+    });
+  }
+  //user logout 
   clearCredsAndLogout() {
-       console.log('in clearCredsAndLogout function');
     this.authenticationService.clearCredentials();
     this._isLoggedIn = false;
     this.router.navigate(['/login']);

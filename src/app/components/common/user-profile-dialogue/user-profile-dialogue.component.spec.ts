@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { UserProfileDialogueComponent } from './user-profile-dialogue.component';
 
 describe('UserProfileDialogueComponent', () => {

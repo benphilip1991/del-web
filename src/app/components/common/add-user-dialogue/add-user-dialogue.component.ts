@@ -24,7 +24,7 @@ export class AddUserDialogueComponent implements OnInit {
   ngOnInit(): void {}
   //add new user to user list
   adduser(){
-    //type conversion for age from string to int
+  //type conversion for age from string to int
   const formvalue={...this.profileForm.value,age:parseInt(this.profileForm.value.age)}
     this.userService.addUserDeatils(formvalue).subscribe(
       (response) => {
