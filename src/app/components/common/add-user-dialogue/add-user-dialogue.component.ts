@@ -1,45 +1,54 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup} from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
-import { UserService } from '@app/services/user/user.service';
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
+import { MatDialog, MatDialogRef } from "@angular/material/dialog";
+import { UserService } from "@app/services/user/user.service";
+import { userRoles } from "@app/utils/app-constants.utils";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
-  selector: 'app-add-user-dialogue',
-  templateUrl: './add-user-dialogue.component.html',
-  styleUrls: ['./add-user-dialogue.component.scss']
+  selector: "app-add-user-dialogue",
+  templateUrl: "./add-user-dialogue.component.html",
+  styleUrls: ["./add-user-dialogue.component.scss"],
 })
 export class AddUserDialogueComponent implements OnInit {
   // Angular forms system works with a FormGroup
   form: FormGroup;
+  roles: Array<String>;
 
-   constructor(
-    private userService : UserService,
+  constructor(
+    private userService: UserService,
     private formBuilder: FormBuilder,
+    private toastr: ToastrService,
+    public dialog: MatDialog,
     public dialogRef: MatDialogRef<AddUserDialogueComponent>
   ) {}
 
   ngOnInit(): void {
-       this.form = new FormGroup({
-       firstName: new FormControl(''),
-       lastName: new FormControl(''),
-       emailId: new FormControl(''),
-       age: new FormControl(''),
-       sex: new FormControl(''),
-       password: new FormControl(''),
-       userRole: new FormControl(''),
-      });
+    this.form = this.formBuilder.group({
+      firstName: this.formBuilder.control(""),
+      lastName: this.formBuilder.control(""),
+      emailId: this.formBuilder.control(""),
+      age: this.formBuilder.control(""),
+      sex: this.formBuilder.control(""),
+      password: this.formBuilder.control(""),
+      userRole: this.formBuilder.control(""),
+    });
+    this.roles = Object.values(userRoles);
   }
 
   //add new user to exsisting user list
-  addUser(){
-  //type conversion for age from string to int
-      const formvalue={...this.form.value,age:parseInt(this.form.value.age)}
-      this.userService.addUserDeatils(formvalue).subscribe(
-            (response) => {
-                    this.dialogRef.close(response);
-            }, (error) => {
-              console.log("Error"+Response);
-            }
-      );
+  addUser() {
+    //type conversion for age from string to int
+    const formvalue = {
+      ...this.form.value,
+      age: parseInt(this.form.value.age),
+    };
+    this.userService.addUserDetails(formvalue).subscribe(
+      (response) => {
+        this.toastr.success("User Added, Successfully");
+        this.dialogRef.close(response);
+      },
+      (error) => {}
+    );
   }
 }

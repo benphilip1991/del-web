@@ -27,18 +27,18 @@ export class UserService {
 
     let serviceBase = this.delApiServices;
 
-    if (null == userId) {
-      return serviceBase.delApiUrl + ':'
-      + serviceBase.delApiPort + '/'
-      + serviceBase.delApiVersion + '/'
-      + serviceBase.userApi;
-    }
     if(null != userId){
     return serviceBase.delApiUrl + ':'
       + serviceBase.delApiPort + '/'
       + serviceBase.delApiVersion + '/'
       + serviceBase.userApi + '/'
       + userId;
+    }
+    else{
+      return serviceBase.delApiUrl + ':'
+      + serviceBase.delApiPort + '/'
+      + serviceBase.delApiVersion + '/'
+      + serviceBase.userApi;
     }
   }
  
@@ -118,7 +118,7 @@ export class UserService {
   /**
    *adding new user to user list
    */ 
-   addUserDeatils(userDetails: any,token?: string): Observable<any> {
+   addUserDetails(userDetails: any,token?: string): Observable<any> {
     if (null == token) {
       token = localStorage.getItem(credentials.TOKEN);
     }

@@ -29,6 +29,7 @@
     "@ng-bootstrap/ng-bootstrap": "^6.2.0",
     "bootstrap": "^4.4.0",
     "dotenv": "^8.2.0",
+    "ngx-toastr": "^13.2.1",
     "rxjs": "^6.5.5",
     "tslib": "^1.14.1",
     "zone.js": "^0.10.3"

@@ -14,7 +14,11 @@
         <div class="line"></div>
         <input matInput placeholder="Sex" name="sex" formControlName="sex" required>
         <div class="line"></div>
-        <input matInput placeholder="User Role" name="userRole" formControlName="userRole" required>
+        <select placeholder="User Role" name="userRole" formControlName="userRole">
+            <option value="">Select user role</option>
+            <option *ngFor="let role of roles" [ngValue]="role" >{{role}}
+            </option>
+         </select>
         <div class="line"></div>
         <br>
         <button type="submit" class="registerbtn">Register </button>

@@ -20,6 +20,7 @@ import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ToastrModule } from 'ngx-toastr';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { delApiServicesToken, environment } from '@env/environment';
@@ -31,7 +32,6 @@ import { AppDashboardComponent } from './components/app-dashboard/app-dashboard.
 import { UserProfileDialogueComponent } from './components/common/user-profile-dialogue/user-profile-dialogue.component';
 import { AddUserDialogueComponent } from './components/common/add-user-dialogue/add-user-dialogue.component';
 import { ConfirmationDialogComponent } from './components/common/confirmation-dialog/confirmation-dialog.component';
-
 
 @NgModule({
   imports: [
@@ -49,6 +49,11 @@ import { ConfirmationDialogComponent } from './components/common/confirmation-di
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ToastrModule.forRoot({
+    timeOut: 10000,
+    positionClass: 'toast-bottom-right',
+    preventDuplicates: true,
+  }),
     FontAwesomeModule,
     RouterModule.forRoot([
       { path: '', component: LoginComponent }
