@@ -69,3 +69,11 @@ export const userRoles = {
     DEVELOPER: 'developer',
     PATIENT: 'patient'
 }
+
+/**
+ * Page and Page size defined for pagination.
+ */
+export const pageDetails ={
+     page : 1,
+     pageSize : 5
+}

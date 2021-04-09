@@ -1,21 +1,24 @@
 <div>
     <div>
-        <button class="buttonadduser" (click) = "addUser()">AddUser</button>
+        <button class="buttonadduser" (click) = "addUser()">Add User</button>
     </div>
     <div class="tablestyle">
         <table>
             <tr>
-                <th>User</th>
-                <th> Action</th>
+                <th class ="userid" >User</th>
+                <th class="actionid"> Action</th>
             </tr>
         </table>
         <br>
         <table>
             <tr *ngFor="let user of Users | slice: (page-1) * pageSize : page * pageSize">
+                <div class="splitrow">
                 <td> {{user.firstName}}</td>
-                <td> <button  class="buttonshowprofile" (click)="showProfile(user)">Profile</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button class="buttonremoveuser" (click)="removeuser(user._id)">Remove</button>
+                <td> <button  class="buttonshowprofile" (click)="showProfile(user)">Profile</button>
+                     <b>|</b>
+                     <button class="buttonremoveuser" (click)="openDialog(user._id)">Delete</button>
                 </td>
+                </div>
             </tr>
         </table>
         <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="Users.length"></ngb-pagination>

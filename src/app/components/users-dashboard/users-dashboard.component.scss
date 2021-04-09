@@ -1,65 +1,73 @@
-table {
-  border-collapse: collapse;
-  border-spacing: 60px 50rem;
-}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+// Fonts
+$font-primary:"Montserrat", sans-serif;
 th {
-  background-color: #066981;
-  Color:white;
+  background-color: #02899b;
+  font-family: $font-primary;
+  font-size: 15px;
 }
-th, td {
-  width:450px;
-  height: 65px;
-  text-align:center;
-  border:1px solid whitesmoke ;
-  padding:1px;
-  font-size: 17px; 
+th,
+td {
+  width: 450px;
+  height: 40px;
+  font-family: $font-primary;
+  font-size: 15px;
+  text-align: center;
+  border-radius: 25px;
+}
+.splitrow {
+  border-radius: 25px;
+  padding: 6px;
+  margin: 10px 0px;
+  border: 1px  snow;
+  box-shadow: 1px 1px 1px 1px #666;
+}
+.actionid {
+  background-color: #d81b60;
 }
 .buttonshowprofile {
-  background-color: #066981;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-  margin: 4px 2px;
-  cursor: pointer;
-}    
-.buttonremoveuser {
-  background-color: #af4c4c;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-  margin: 4px 2px;
-  cursor: pointer;
-}       
-.buttonadduser {
+  font-family: $font-primary;
   background-color: white;
   border: none;
-  color: black;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
+  color: #02899b;
+  text-align: right;
+  font-size: 15px;
   margin: 4px 2px;
-  cursor: pointer;
-  margin-top: 40px;
-  margin-right:200px;
-}   
-.page-item.active .page-link {
-  z-index: 3;
-  color: #fff; 
-  background-color: #007bff; 
-  border-color: #007bff; 
 }
-.tablestyle{
-  float:left;
-  margin-top: 80px;
-  margin-left:12%;
+.buttonremoveuser {
+  background-color: white;
+  font-family: $font-primary;
+  font-size: 15px;
+  border: none;
+  color: #ff0000;
+  text-align: left;
+}
+.buttonadduser {
+  background-color: white;
+  font-family: $font-primary;
+  float: right;
+  color: black;
+  font-size: 15px;
+  margin: 4px 2px;
+  margin-top: 20px;
+  margin-right: 200px;
+  border: 1px solid grey;
+  border-radius: 35px;
+  padding: 12px;
+  width: 130px;
+}
+.buttonadduser:hover {
+  background-color: slategray;
+}
+.page-item.active .page-link {
+  z-index: 5;
+  color: rgb(33, 156, 33);
+  background-color: none;
+  border-color: none;
+}
+.tablestyle {
+  float: left;
+  margin-top: 20px;
+  margin-left: 12%;
 }

@@ -27,20 +27,31 @@ export class UserService {
 
     let serviceBase = this.delApiServices;
 
+    if (null == userId) {
+      return serviceBase.delApiUrl + ':'
+      + serviceBase.delApiPort + '/'
+      + serviceBase.delApiVersion + '/'
+      + serviceBase.userApi;
+    }
+    if(null != userId){
     return serviceBase.delApiUrl + ':'
       + serviceBase.delApiPort + '/'
       + serviceBase.delApiVersion + '/'
       + serviceBase.userApi + '/'
       + userId;
+    }
   }
-   getUserUrl(): string {
-
-    let serviceBase = this.delApiServices;
-
-    return serviceBase.delApiUrl + ':'
-      + serviceBase.delApiPort + '/'
-      + serviceBase.delApiVersion + '/'
-      + serviceBase.userApi;
+ 
+  /**
+   * Fetch bearer token
+   */ 
+   getAPIHeader(token?: string) {
+    let options = {
+      headers: new HttpHeaders({
+        'authorization': `Bearer ${token}`
+      })
+    }
+    return options;
   }
 
   /**
@@ -56,11 +67,7 @@ export class UserService {
       token = localStorage.getItem(credentials.TOKEN);
     }
 
-    let options = {
-      headers: new HttpHeaders({
-        'authorization': `Bearer ${token}`
-      })
-    }
+    let options = this.getAPIHeader(token);    
 
     let userObservable = this.http.get<UserDetails>(this.getApiUrl(userId), options)
       .pipe(map((response) => {
@@ -70,19 +77,18 @@ export class UserService {
     );
     return userObservable;
   }
-  //get all user list by giving the bearer token
+
+   /**
+   *get all user list by giving the bearer token
+   */
   getUserList(token?: string): Observable<UsersList> { 
     if (null == token) {
       token = localStorage.getItem(credentials.TOKEN);
     }
 
-    let options = {
-      headers: new HttpHeaders({
-        'authorization': `Bearer ${token}`
-      })
-    }
+    let options = this.getAPIHeader(token);  
 
-    let userObservable = this.http.get<UsersList>(this.getUserUrl(), options)
+    let userObservable = this.http.get<UsersList>(this.getApiUrl(), options)
       .pipe(map((response) => {
         return response;
       }),
@@ -90,17 +96,16 @@ export class UserService {
     );
     return userObservable;
   }
-  // delete the user list from user record
+
+  /**
+   * delete the user list from user record
+   */ 
   removeUser(userId: string, token?: string): Observable<string> {
     if (null == token) {
       token = localStorage.getItem(credentials.TOKEN);
     }
 
-    let options = {
-      headers: new HttpHeaders({
-        'authorization': `Bearer ${token}`
-      })
-    }
+    let options = this.getAPIHeader(token);  
 
     let userObservable = this.http.delete<string>(this.getApiUrl(userId), options)
       .pipe(map((response) => {
@@ -110,19 +115,17 @@ export class UserService {
     );
     return userObservable;
   }
-//add new user 
+  /**
+   *adding new user to user list
+   */ 
    addUserDeatils(userDetails: any,token?: string): Observable<any> {
     if (null == token) {
       token = localStorage.getItem(credentials.TOKEN);
     }
 
-    let options = {
-      headers: new HttpHeaders({
-        'authorization': `Bearer ${token}`
-      })
-    }
+    let options =this.getAPIHeader(token);  
 
-    let userObservable = this.http.post<any>(this.getUserUrl(),userDetails, options)
+    let userObservable = this.http.post<any>(this.getApiUrl(),userDetails, options)
       .pipe(map((response) => {
         return response;
       }),

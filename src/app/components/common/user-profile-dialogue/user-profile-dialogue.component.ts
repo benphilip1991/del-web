@@ -7,9 +7,10 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./user-profile-dialogue.component.scss']
 })
 export class UserProfileDialogueComponent implements OnInit {
-user :any;
-  constructor( @Inject(MAT_DIALOG_DATA) public data: any) {   
-  }
+  user :any;
+
+  constructor( @Inject(MAT_DIALOG_DATA) public data: any) {}
+
   ngOnInit(): void {
     this.user=this.data.user;
   }
