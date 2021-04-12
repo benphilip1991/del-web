@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { UserService } from "@app/services/user/user.service";
-import { userRoles } from "@app/utils/app-constants.utils";
+import { sex, userRoles } from "@app/utils/app-constants.utils";
 import { ToastrService } from "ngx-toastr";
 
 @Component({
@@ -14,6 +14,7 @@ export class AddUserDialogueComponent implements OnInit {
   // Angular forms system works with a FormGroup
   form: FormGroup;
   roles: Array<String>;
+  userSex: Array<String>;
 
   constructor(
     private userService: UserService,
@@ -34,15 +35,19 @@ export class AddUserDialogueComponent implements OnInit {
       userRole: this.formBuilder.control(""),
     });
     this.roles = Object.values(userRoles);
+    this.userSex = Object.values(sex);
   }
 
   //add new user to exsisting user list
   addUser() {
     //type conversion for age from string to int
+    if ((this.form.value.sex) == "Prefer not to mention"){
+      this.form.value.sex = "none";
+    }
     const formvalue = {
-      ...this.form.value,
-      age: parseInt(this.form.value.age),
-    };
+        ...this.form.value,
+        age: parseInt(this.form.value.age),
+      };
     this.userService.addUserDetails(formvalue).subscribe(
       (response) => {
         this.toastr.success("User Added, Successfully");

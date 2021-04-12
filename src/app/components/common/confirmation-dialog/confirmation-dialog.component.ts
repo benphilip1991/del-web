@@ -28,8 +28,8 @@ export class ConfirmationDialogComponent implements OnInit {
           this.dialogRef.close(true);
           this.toastr.success('User Deleted');
       }, (error) => {
-        this.dialogRef.close(false);
-         this.toastr.success('Hello world!', 'Toastr fun!');
+         this.dialogRef.close(false);
+         this.toastr.success('Admin cannot be removed');
       }
     );
   }

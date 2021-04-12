@@ -71,6 +71,15 @@ export const userRoles = {
 }
 
 /**
+ * User sex in add user component.
+ */
+export const sex = {
+  MALE: "male",
+  FEMALE: "female",
+  NOTTOMENTION: "Prefer not to mention",
+  OTHER: "other",
+};
+/**
  * Page and Page size defined for pagination.
  */
 export const pageDetails ={
