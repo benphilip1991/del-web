@@ -34,8 +34,10 @@ $font-primary: "Montserrat", sans-serif;
 
     th,
     td {
-      width: 450px;
-      height: 40px;
+      min-width: 450px;
+      max-width: 450px;
+      min-height: 40px;
+      max-height: 45px;
       font-family: $font-primary;
       font-size: 15px;
       text-align: center;
@@ -52,11 +54,11 @@ $font-primary: "Montserrat", sans-serif;
 
     .actionid {
       background-color: #d81b60;
-      color:white;
+      color: white;
     }
 
     .userid {
-      color:white;
+      color: white;
     }
 
     .buttonshowprofile {
