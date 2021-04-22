@@ -41,13 +41,10 @@ export class AddUserDialogueComponent implements OnInit {
   //add new user to exsisting user list
   addUser() {
     //type conversion for age from string to int
-    if ((this.form.value.sex) == "Prefer not to mention"){
+    if (this.form.value.sex == "Prefer not to mention") {
       this.form.value.sex = "none";
     }
-    const formvalue = {
-        ...this.form.value,
-        age: parseInt(this.form.value.age),
-      };
+    const formvalue = {...this.form.value,age: parseInt(this.form.value.age)};
     this.userService.addUserDetails(formvalue).subscribe(
       (response) => {
         this.toastr.success("User Added, Successfully");
