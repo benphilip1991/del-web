@@ -13,10 +13,10 @@ export class HomeComponent implements OnInit {
   private _isLoggedIn: boolean;
   private _selectedDashboard: string;
 
-  constructor(
+   constructor(
     private authenticationService: AuthenticationService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.verifyLoginState();
