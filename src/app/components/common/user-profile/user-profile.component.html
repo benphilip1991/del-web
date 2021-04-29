@@ -1,0 +1,94 @@
+<div>
+  <table class="tablestyle">
+    <tr>
+      <h3>Health Index</h3>
+    </tr>
+  </table>
+  <table class="table">
+    <div class="container">
+      <div class="userDetailsTab">
+        <p>User Details</p>
+      </div>
+      <form class="form" role="form">
+        <table class="editTable" *ngIf="!!userDetails">
+          <tr>
+            <td>
+              <label>First name: </label>
+            </td>
+            <td>
+              <input
+                matInputtype="text"
+                [disabled]="!isEditable"
+                value="{{ userDetails.firstName }}"
+              />
+            </td>
+          </tr>
+          <div class="line"></div>
+          <tr>
+            <td>
+              <label>Last name:</label>
+            </td>
+            <td>
+              <input
+                matInputtype="text"
+                [disabled]="!isEditable"
+                value="{{ userDetails.lastName }}"
+              />
+            </td>
+          </tr>
+          <div class="line"></div>
+          <tr>
+            <td>
+              <label>Age :</label>
+            </td>
+            <td>
+              <input
+                matInputtype="text"
+                [disabled]="!isEditable"
+                value="{{ userDetails.age }}"
+              />
+            </td>
+          </tr>
+          <div class="line"></div>
+          <tr>
+            <td>
+              <label>Gender:</label>
+            </td>
+            <td>
+              <select
+                placeholder="Sex"
+                name="Sex"
+                [disabled]="!isEditable"
+                value="{{ userDetails.sex }}"
+              >
+                <option value="">{{ userDetails.sex }}</option>
+                <option *ngFor="let sex of userSex" [ngValue]="sex">
+                  {{ sex }}
+                </option>
+              </select>
+            </td>
+          </tr>
+        </table>
+        <div class="line"></div>
+        <div class="editbutton">
+          <button class="buttonedituser" (click)="editUserDetail(userDetails)">
+            Edit Detail
+          </button>
+        </div>
+      </form>
+    </div>
+  </table>
+
+  <table class="table1">
+    <div class="container1">
+      <div class="assignedApplication">
+        <p>Assigned Application</p>
+      </div>
+      <div>
+        <button class="updateAssignment" (click)="updateAssignment()">
+          Update Assignment
+        </button>
+      </div>
+    </div>
+  </table>
+</div>

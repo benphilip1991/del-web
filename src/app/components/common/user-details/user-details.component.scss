@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+// Fonts
+$font-primary: "Montserrat", sans-serif;
+
+.userDetails {
+  color: #02899b;
+  .close {
+    float: right;
+    margin-top: 1px;
+    background-color: #d81b60;
+    color: #ffff;
+    margin-top: -43px;
+  }
+}
+
+.personalDetails {
+  background-color: #02899b;
+  color: #ffff;
+  width: 1400px;
+  height: 39px;
+  text-align: left;
+  padding-left: 10px;
+  padding-top: 9px;
+  border-radius: 10px;
+}
+
+.medicalHistory {
+  background-color: #02899b;
+  color: #ffff;
+  width: 1400px;
+  height: 39px;
+  text-align: left;
+  padding-left: 10px;
+  padding-top: 9px;
+  border-radius: 10px;
+}
+
+.splitrow {
+  border-radius: 25px;
+  width: 1400px;
+  padding: 6px;
+  margin: 10px 0px;
+  border: 1px snow;
+  box-shadow: 1px 1px 1px 1px #666;
+}
+
+.line {
+  height: 10px;
+}
+
+.line1 {
+  height: 20px;
+}
+
+.line2 {
+  height: 40px;
+}
+
+.line3 {
+  height: 60px;
+}
+
+.editInput {
+  float: right;
+  margin-left: 30px;
+  text-align: left;
+  padding-left: 15px;
+}
+
+.editDropDown {
+  float: right;
+  margin-left: 18px;
+  width: 180px;
+  text-align: left;
+  padding-left: 15px;
+}

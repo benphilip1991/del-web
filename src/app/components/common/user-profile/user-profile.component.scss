@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+// Fonts
+$font-primary: "Montserrat", sans-serif;
+
+.splitrow {
+  border-radius: 25px;
+  padding: 6px;
+  margin: 10px 0px;
+  border: 1px snow;
+  box-shadow: 1px 1px 1px 1px #666;
+}
+
+.tablestyle {
+  float: left;
+  margin-top: 20px;
+  margin-left: 10px;
+  min-width: 15px;
+  max-width: 60%;
+  height: 390px;
+  width: 100%;
+}
+
+.table {
+  margin-top: 2px;
+  margin-right: 2px;
+  width: 360px;
+  height: 280px;
+  float: right;
+  margin-left: 2px;
+  padding-right: 200px;
+  margin-inline-end: 30px;
+}
+.table1 {
+  margin-top: 8px;
+  margin-right: 2px;
+  width: 360px;
+  height: 280px;
+  float: right;
+  margin-left: 2px;
+  padding-right: 200px;
+  margin-inline-end: 30px;
+}
+
+.userProfile {
+  width: 390px;
+  height: 550px;
+}
+
+.container {
+  background-color: #02899b;
+  width: 350px;
+  height: 320px;
+  margin-top: 20px;
+  float: right;
+  color: #ffffff;
+  border-radius: 16px;
+}
+
+.container1 {
+  background-color: #02899b;
+  width: 350px;
+  height: 320px;
+  margin-top: 16px;
+  float: right;
+  color: #ffffff;
+  border-radius: 16px;
+}
+
+.editTable {
+  margin-top: 20px;
+}
+
+td {
+  padding: 0px 11px;
+}
+
+.line {
+  height: 30px;
+}
+
+.userDetailsTab {
+  background-color: #ffffff;
+  color: #02899b;
+  margin-top: 12px;
+  text-align: left;
+  padding-left: 10px;
+  border-radius: 10px;
+  width: 300px;
+  margin-left: 10px;
+}
+
+.assignedApplication {
+  background-color: #ffffff;
+  color: #02899b;
+  margin-top: 15px;
+  text-align: left;
+  padding-left: 10px;
+  padding-top: 12px;
+  padding-bottom: 2px;
+  width: 300px;
+  margin-left: 25px;
+  border-radius: 10px;
+}
+
+.buttonedituser {
+  background-color: #d81b60;
+  color: #ffffff;
+  margin-top: 20px;
+  width: 300px;
+  margin-left: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.updateAssignment {
+  background-color: #d81b60;
+  color: #ffffff;
+  margin-top: 200px;
+  width: 300px;
+  margin-left: 25px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.onEditDropdown {
+  color: black;
+  background-color: white;
+  -moz-appearance: button-arrow-down;
+  -webkit-appearance: scrollbarbutton-down;
+}
+
+.onEditDropdown::-ms-expand {
+  display: block;
+}
+
+.line {
+  height: 10px;
+  .tablestyle {
+    border: solid;
+    color: brown;
+    background-color: #02899b;
+  }
+}
