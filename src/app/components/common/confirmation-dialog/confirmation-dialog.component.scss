@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+// Fonts
+$font-primary: 'Montserrat', sans-serif;
+
 .button2 {
   width: 50px;
 }
 .button1 {
   margin-right: 50px ;
+}
+.md-toast.md-success-toast-theme .md-toast-content {
+    background-color: red;
 }
