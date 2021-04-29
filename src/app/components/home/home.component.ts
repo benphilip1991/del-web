@@ -1,17 +1,18 @@
 import { credentials } from './../../utils/app-constants.utils';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '@app/services/auth/authentication.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit{
 
   private _isLoggedIn: boolean;
   private _selectedDashboard: string;
+  showUserProfile :boolean =false;
 
    constructor(
     private authenticationService: AuthenticationService,
@@ -20,6 +21,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.verifyLoginState();
+      if (this.router.url.indexOf("/userProfile") !== -1) {
+        this.showUserProfile = true;
+      }
+    
   }
 
   /**
@@ -50,6 +55,7 @@ export class HomeComponent implements OnInit {
    */
   switchDashboard(dashboardName: string) {
     this._selectedDashboard = dashboardName;
+    console.log("In switch dashboard",this._selectedDashboard);
   }
 
   /**

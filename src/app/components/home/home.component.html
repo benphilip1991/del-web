@@ -1,11 +1,23 @@
 <div *ngIf="isLoggedIn">
     <header>
-        <app-header [loggedIn]="isLoggedIn"></app-header>
+        <app-header [loggedIn]="isLoggedIn"  (toggleDrawer) ="drawer.toggle()"></app-header>
     </header>
     <!-- The sidebarMenuSelected event is fired by the sidebar component -->
-    <app-sidebar [loggedIn]="isLoggedIn" (sidebarMenuSelectionEvent)="switchDashboard($event)"></app-sidebar>
+    <mat-sidenav-container class="sidenav-container">
+     <mat-sidenav #drawer mode="side" opened="true">
+    <div class="sidebar">
+            <app-sidebar
+              [loggedIn]="isLoggedIn"
+              (sidebarMenuSelectionEvent)="switchDashboard($event)">
+            </app-sidebar>
+            </div>
+      </mat-sidenav>
+    <mat-sidenav-content>
     <div class="dashboard">
         <app-dashboard *ngIf="selectedDashboard === 'app'"></app-dashboard>
-        <users-dashboard *ngIf="selectedDashboard === 'user'"></users-dashboard>
+        <users-dashboard *ngIf="selectedDashboard === 'user' && !showUserProfile"></users-dashboard>
+        <app-user-profile *ngIf="selectedDashboard === 'user' && showUserProfile"></app-user-profile>
     </div>
+</mat-sidenav-content>
+</mat-sidenav-container>
 </div>
