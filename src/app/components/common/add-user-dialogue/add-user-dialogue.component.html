@@ -4,15 +4,15 @@
         <p>Please fill in this form to create an account.</p>
         <div class="lineHead"></div>
         <input matInput placeholder="First Name" name="firstName" formControlName="firstName" required>
-        <div class="line"></div>
+        <div class="space"></div>
         <input matInput placeholder="Last Name" name="lastName" formControlName="lastName" required>
-        <div class="line"></div>
+        <div class="space"></div>
         <input matInput placeholder="Email ID" name="email" formControlName="emailId" required>
-        <div class="line"></div>
+        <div class="space"></div>
         <input matInput placeholder="Age" name="age" formControlName="age" required>
-        <div class="line"></div>
+        <div class="space"></div>
         <input matInput placeholder="Password" name="psw" formControlName="password" required>
-        <div class="line"></div>
+        <div class="space"></div>
         <div class="lineDropDown">
         <select class="select-css" placeholder="Sex" name="Sex" formControlName="sex">
             <option value="">Select sex</option>
@@ -25,7 +25,7 @@
             <option *ngFor="let role of roles" [ngValue]="role" >{{role}}
             </option>
          </select>
-        <div class="line"></div>
+        <div class="space"></div>
         <button type="submit" class="registerbtn">Register </button>
      </div>
 </form>

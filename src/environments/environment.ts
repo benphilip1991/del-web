@@ -9,17 +9,19 @@ export const environment = {
   production: false,
 
   delApiServices: {
-    delApiUrl: 'http://localhost',
-    delApiPort: '3050',
-    delApiVersion: 'api/v1',
+    delApiUrl: "http://localhost",
+    delApiPort: "3050",
+    delApiVersion: "api/v1",
     application: {
-      allApplicationDetails: 'application',
+      allApplicationDetails: "application",
     },
-    authApi: 'auth',
-    userApi: 'user',
-    applicationApi: 'application',
-    userApplication: 'userApplication'
-  }
+    authApi: "auth",
+    userApi: "user",
+    applicationApi: "application",
+    userApplication: "userApplication",
+    package: "package",
+    icon: "icon",
+  },
 };
 
 /*

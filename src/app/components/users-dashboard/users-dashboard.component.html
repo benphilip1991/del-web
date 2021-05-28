@@ -1,21 +1,18 @@
-<div class="user-dashboard">
   <div>
     <button class="buttonadduser" (click)="addUser()">Add User</button>
   </div>
   <div class="tablestyle">
-    <table>
-      <tr>
-        <th class="userid">User</th>
-        <th class="actionid">Action</th>
-      </tr>
-    </table>
-    <br />
+    <div class="overLap">
+    <td><p class="userid" >Name </p></td>
+    <td><p class="actionid">Actions</p></td>
+    </div>
+    <div class="space"></div>
     <table>
       <tr
         *ngFor="let user of users | slice: (page - 1) * pageSize:page * pageSize">
         <div class="splitrow">
-          <td>{{ user.firstName }}</td>
-          <td>
+          <td class="nameAllign">{{ user.firstName }}</td>
+          <td class="buttonAllign">
             <button class="buttonshowprofile" (click)="showProfile(user)">
               Profile
             </button>
@@ -29,4 +26,3 @@
     </table>
     <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="users.length"></ngb-pagination>
   </div>
-</div>

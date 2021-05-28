@@ -5,7 +5,6 @@ import { Input } from "@angular/core";
 import { AuthenticationService } from "@app/services/auth/authentication.service";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { pageDetails } from "@app/utils/app-constants.utils";
-import { UserProfileDialogueComponent } from "@components/common/user-profile-dialogue/user-profile-dialogue.component";
 import { AddUserDialogueComponent } from "@components/common/add-user-dialogue/add-user-dialogue.component";
 import { ConfirmationDialogComponent } from "@components/common/confirmation-dialog/confirmation-dialog.component";
 
@@ -35,13 +34,7 @@ export class UsersDashboardComponent implements OnInit {
 
   //show user list in user profile dialogue
   showProfile(user) {
-    let dialogRef = this.dialog.open(UserProfileDialogueComponent, {
-      height: "400px",
-      width: "500px",
-      data: {
-        user: user,
-      },
-    });
+    this.router.navigate(["/userProfile",user._id]);
   }
 
   //get all user list
@@ -62,8 +55,7 @@ export class UsersDashboardComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-      //remove user from current user list
-        this.users = this.users.filter((user) => user._id !== userId);
+        this.getUserList();
       }
     });
   }

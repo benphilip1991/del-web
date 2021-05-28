@@ -55,16 +55,17 @@ $color-text-white: #ffffff;
     }
 
     .dropdown {
-      height: 100%;
+      height: 60%;
+      width: 1%;
       display: table;
       float: right;
 
       mat-form-field {
-        height: 100%;
+        width: 20px;
         display: table-cell;
-        vertical-align: middle;
 
         mat-label {
+          width: 20px;
           font-family: $font-primary;
           color: $color-text-white;
         }
