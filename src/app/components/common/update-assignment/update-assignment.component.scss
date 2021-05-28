@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+// Fonts
+$font-primary: "Montserrat", sans-serif;
+
+.applicationsUsed {
+  background-color: #02899b;
+  color: #ffff;
+  width: 1020px;
+  height: 43px;
+  text-align: left;
+  padding-left: 10px;
+  border-radius: 10px;
+  font-family: $font-primary;
+}
+
+.applicationsToAdd {
+  background-color: #02899b;
+  color: #ffff;
+  width: 1020px;
+  height: 43px;
+  text-align: left;
+  padding-left: 10px;
+  border-radius: 10px;
+  font-family: $font-primary;
+}
+
+.remove {
+  background-color: #d81b60;
+  color: #ffffff;
+  width: 60px;
+  margin-left: 68px;
+  margin-top: 5px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 10px;
+  font-family: $font-primary;
+}
+
+.col-md-1 {
+  flex: 0 0 auto;
+  width: 11.333333%;
+}
+
+.add {
+  background-color: #d81b60;
+  color: #ffffff;
+  width: 60px;
+  margin-left: 68px;
+  margin-top: 10px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 10px;
+  font-family: $font-primary;
+}
+
+.resize {
+  height: 70px;
+  padding-left: 15px;
+  padding-top: 10px;
+}
+
+.row {
+  width: 970px;
+  min-width: 920px;
+  height: 180px;
+}
+
+.table {
+  width: 20px;
+  height: 20px;
+  overflow: auto;
+}
+
+.border {
+  background-color: #ffffff;
+  margin-left: 50px;
+  margin-top: 12px;
+  width: 90px;
+  height: 90px;
+  border-radius: 20px;
+}
+
+.iconName {
+  color: black;
+  padding-left: 20px;
+  font-family: $font-primary;
+  font-size: 10px;
+}
+
+.space1 {
+  height: 35px;
+}
+
+.space {
+  height: 15px;
+}
+
+.userDetails {
+  color: #02899b;
+  font-family: $font-primary;
+  width: 1010px;
+  .close {
+    float: right;
+    margin-right: auto;
+    background-color: #d81b60;
+    color: #ffff;
+    margin-top: -5px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+}

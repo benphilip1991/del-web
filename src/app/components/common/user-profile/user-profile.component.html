@@ -1,7 +1,7 @@
-<div>
+<div class="head">
   <table class="tablestyle">
     <tr>
-      <h3>Health Index</h3>
+      <h3 class="font">Health Index</h3>
     </tr>
   </table>
   <table class="table">
@@ -16,51 +16,34 @@
               <label>First name: </label>
             </td>
             <td>
-              <input
-                matInputtype="text"
-                [disabled]="!isEditable"
-                value="{{ userDetails.firstName }}"
-              />
+              <input matInputtype="text" [disabled]="!isEditable" value="{{ userDetails.firstName }}"/>
             </td>
           </tr>
-          <div class="line"></div>
+          <div class="space"></div>
           <tr>
             <td>
               <label>Last name:</label>
             </td>
             <td>
-              <input
-                matInputtype="text"
-                [disabled]="!isEditable"
-                value="{{ userDetails.lastName }}"
-              />
+              <input matInputtype="text" [disabled]="!isEditable" value="{{ userDetails.lastName }}"/>
             </td>
           </tr>
-          <div class="line"></div>
+          <div class="space"></div>
           <tr>
             <td>
               <label>Age :</label>
             </td>
             <td>
-              <input
-                matInputtype="text"
-                [disabled]="!isEditable"
-                value="{{ userDetails.age }}"
-              />
+              <input matInputtype="text" [disabled]="!isEditable" value="{{ userDetails.age }}"/>
             </td>
           </tr>
-          <div class="line"></div>
+          <div class="space"></div>
           <tr>
             <td>
               <label>Gender:</label>
             </td>
             <td>
-              <select
-                placeholder="Sex"
-                name="Sex"
-                [disabled]="!isEditable"
-                value="{{ userDetails.sex }}"
-              >
+              <select placeholder="Sex" name="Sex" [disabled]="!isEditable" value="{{ userDetails.sex }}" >
                 <option value="">{{ userDetails.sex }}</option>
                 <option *ngFor="let sex of userSex" [ngValue]="sex">
                   {{ sex }}
@@ -68,8 +51,17 @@
               </select>
             </td>
           </tr>
+          <div class="space"></div>
+          <tr>
+            <td>
+              <label>User Role :</label>
+            </td>
+            <td>
+              <input matInputtype="text" [disabled]="!isEditable" value="{{ userDetails.userRole }}"/>
+            </td>
+          </tr>
         </table>
-        <div class="line"></div>
+        <div class="space"></div>
         <div class="editbutton">
           <button class="buttonedituser" (click)="editUserDetail(userDetails)">
             Edit Detail
@@ -78,11 +70,21 @@
       </form>
     </div>
   </table>
-
   <table class="table1">
     <div class="container1">
       <div class="assignedApplication">
-        <p>Assigned Application</p>
+        <p>Assigned Applications</p>
+      </div>
+     <div class="space"></div>
+      <div class="row">
+        <div class="col-md-5" *ngFor="let a of icon; let i = index">
+          <div class="border">
+            <tr>
+            <img class="resize" src="{{a}}" alt="no image" />
+            <p class="iconName">{{iconName[i]}}</p>
+            </tr>
+          </div>
+        </div>
       </div>
       <div>
         <button class="updateAssignment" (click)="updateAssignment()">

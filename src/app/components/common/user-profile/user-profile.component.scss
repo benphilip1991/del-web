@@ -11,20 +11,24 @@ $font-primary: "Montserrat", sans-serif;
   box-shadow: 1px 1px 1px 1px #666;
 }
 
+.font{
+  font-family: $font-primary;
+}
+
 .tablestyle {
   float: left;
+  font-family: $font-primary;
   margin-top: 20px;
   margin-left: 10px;
-  min-width: 15px;
-  max-width: 60%;
-  height: 390px;
-  width: 100%;
+  height: 30px;
+  width: 30%;
 }
 
 .table {
   margin-top: 2px;
   margin-right: 2px;
-  width: 360px;
+  min-width: 50%px;
+  max-width: 60%;
   height: 280px;
   float: right;
   margin-left: 2px;
@@ -34,8 +38,9 @@ $font-primary: "Montserrat", sans-serif;
 .table1 {
   margin-top: 8px;
   margin-right: 2px;
-  width: 360px;
-  height: 280px;
+  min-width: 50%;
+  max-width: 605;
+  height: 380px;
   float: right;
   margin-left: 2px;
   padding-right: 200px;
@@ -50,33 +55,33 @@ $font-primary: "Montserrat", sans-serif;
 .container {
   background-color: #02899b;
   width: 350px;
-  height: 320px;
+  height: 330px;
   margin-top: 20px;
   float: right;
   color: #ffffff;
+  font-family: $font-primary;
   border-radius: 16px;
 }
 
 .container1 {
   background-color: #02899b;
   width: 350px;
-  height: 320px;
+  height: 330px;
   margin-top: 16px;
   float: right;
   color: #ffffff;
+  font-family: $font-primary;
   border-radius: 16px;
 }
 
 .editTable {
   margin-top: 20px;
+  font-family: $font-primary;
 }
 
 td {
   padding: 0px 11px;
-}
-
-.line {
-  height: 30px;
+  font-family: $font-primary;
 }
 
 .userDetailsTab {
@@ -87,17 +92,19 @@ td {
   padding-left: 10px;
   border-radius: 10px;
   width: 300px;
+  font-family: $font-primary;
   margin-left: 10px;
 }
 
 .assignedApplication {
   background-color: #ffffff;
   color: #02899b;
+  font-family: $font-primary;
   margin-top: 15px;
   text-align: left;
-  padding-left: 10px;
-  padding-top: 12px;
-  padding-bottom: 2px;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 1px;
   width: 300px;
   margin-left: 25px;
   border-radius: 10px;
@@ -106,23 +113,25 @@ td {
 .buttonedituser {
   background-color: #d81b60;
   color: #ffffff;
-  margin-top: 20px;
+  margin-top: 15px;
   width: 300px;
   margin-left: 10px;
   padding: 5px 10px;
   border-radius: 10px;
   text-align: center;
+  font-family: $font-primary;
 }
 
 .updateAssignment {
   background-color: #d81b60;
   color: #ffffff;
-  margin-top: 200px;
+  margin-top: 20px;
   width: 300px;
   margin-left: 25px;
   padding: 5px 10px;
   border-radius: 10px;
   text-align: center;
+  font-family: $font-primary;
 }
 
 .onEditDropdown {
@@ -136,7 +145,37 @@ td {
   display: block;
 }
 
-.line {
+.resize {
+  height: 70px;
+  padding-left: 15px;
+  padding-top: 10px;
+}
+
+.border {
+  background-color: #ffffff;
+  margin-left: 62px;
+  margin-top: 12px;
+  width: 90px;
+  height: 90px;
+  border-radius: 10px;
+  border: 1px snow;
+  box-shadow: 1px 1px 1px 1px #666;
+}
+
+.row {
+  width: 350px;
+  height: 200px;
+  overflow: auto;
+}
+
+.iconName {
+  color: black;
+  padding-left: 20px;
+  font-family: $font-primary;
+  font-size: 10px;
+}
+
+.space {
   height: 10px;
   .tablestyle {
     border: solid;

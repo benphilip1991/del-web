@@ -38,6 +38,7 @@ import { AddUserDialogueComponent } from './components/common/add-user-dialogue/
 import { ConfirmationDialogComponent } from './components/common/confirmation-dialog/confirmation-dialog.component';
 import { UserDetailsComponent } from './components/common/user-details/user-details.component';
 import { UserProfileComponent } from './components/common/user-profile/user-profile.component';
+import { UpdateAssignmentComponent } from './components/common/update-assignment/update-assignment.component';
 
 @NgModule({
   imports: [
@@ -81,7 +82,8 @@ import { UserProfileComponent } from './components/common/user-profile/user-prof
     ConfirmationDialogComponent,
     AddUserDialogueComponent,
     UserDetailsComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    UpdateAssignmentComponent
   ],
   // Not required if using @Injectable but adding for readability
   providers: [
