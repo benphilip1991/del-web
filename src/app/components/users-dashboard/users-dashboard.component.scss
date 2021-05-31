@@ -2,87 +2,128 @@
 
 // Fonts
 $font-primary: "Montserrat", sans-serif;
-.user-dashboard {
-  .buttonadduser {
-    background-color: white;
+
+.buttonadduser {
+  background-color: white;
+  font-family: $font-primary;
+  color: black;
+  font-size: 15px;
+  margin-left: 849px;
+  margin-bottom: 30px;
+  border: 1px solid grey;
+  border-radius: 20px;
+  padding: 12px;
+  max-width: 20%;
+  min-width: 15%;
+}
+
+.buttonadduser:hover {
+  background-color: slategray;
+}
+
+.space {
+  height: 19px;
+}
+
+.tablestyle {
+  float: left;
+  margin-top: 40px;
+  margin-left: 10%;
+  min-width: 200px;
+  max-width: 400px;
+  height: 10vh;
+  font-family: $font-primary;
+
+  .overLap {
+    background-color: #02899b;
+    width: 890px;
+    height: 39px;
+    color: white;
+    border-radius: 19px;
+  }
+
+  .userid {
+    background-color: #02899b;
+    color: #ffff;
+    width: 630px;
+    height: 39px;
+    text-align: left;
+    border-radius: 19px;
+    padding-left: 29px;
+    padding-top: 9px;
+    border-radius: 19px;
     font-family: $font-primary;
-    float: right;
-    color: black;
+  }
+  .actionid {
+    color: #ffff;
+    width: 280px;
+    height: 39px;
+    text-align: center;
+    border-radius: 19px;
+    padding-top: 9px;
+    font-family: $font-primary;
+    background-color: #d81b60;
+    color: white;
+  }
+
+  th {
+    background-color: #02899b;
+    font-family: $font-primary;
+    font-size: 15px;
+  }
+
+  th,
+  td {
+    min-width: 450px;
+    max-width: 1117px;
+    min-height: 30px;
+    max-height: 34px;
+    font-family: $font-primary;
+    font-size: 15px;
+  }
+
+  .buttonAllign {
+    text-align: right;
+    padding-right: 40px;
+  }
+
+  .nameAllign {
+    text-align: left;
+    padding-left: 40px;
+  }
+
+  .splitrow {
+    border-radius: 25px;
+    padding: 6px;
+    text-align: left;
+    margin: 10px 0px;
+    border: 1px snow;
+    box-shadow: 1px 1px 1px 1px #666;
+  }
+
+  .buttonshowprofile {
+    font-family: $font-primary;
+    background-color: inherit;
+    border: none;
+    color: #02899b;
     font-size: 15px;
     margin: 4px 2px;
-    margin-top: 20px;
-    margin-right: 200px;
-    border: 1px solid grey;
-    border-radius: 35px;
-    padding: 12px;
-    width: 130px;
-  }
-  .buttonadduser:hover {
-    background-color: slategray;
+    text-align: center;
   }
 
-  .tablestyle {
-    float: left;
-    margin-top: 20px;
-    margin-left: 12%;
+  .buttonremoveuser {
+    background-color: inherit;
+    font-family: $font-primary;
+    font-size: 15px;
+    border: none;
+    color: #ff0000;
+    text-align: center;
+  }
 
-    th {
-      background-color: #02899b;
-      font-family: $font-primary;
-      font-size: 15px;
-    }
-
-    th,
-    td {
-      width: 450px;
-      height: 40px;
-      font-family: $font-primary;
-      font-size: 15px;
-      text-align: center;
-      border-radius: 25px;
-    }
-
-    .splitrow {
-      border-radius: 25px;
-      padding: 6px;
-      margin: 10px 0px;
-      border: 1px snow;
-      box-shadow: 1px 1px 1px 1px #666;
-    }
-
-    .actionid {
-      background-color: #d81b60;
-      color:white;
-    }
-
-    .userid {
-      color:white;
-    }
-
-    .buttonshowprofile {
-      font-family: $font-primary;
-      background-color: white;
-      border: none;
-      color: #02899b;
-      text-align: right;
-      font-size: 15px;
-      margin: 4px 2px;
-    }
-
-    .buttonremoveuser {
-      background-color: white;
-      font-family: $font-primary;
-      font-size: 15px;
-      border: none;
-      color: #ff0000;
-      text-align: left;
-    }
-
-    .page-item.active .page-link {
-      z-index: 5;
-      color: rgb(33, 156, 33);
-      background-color: none;
-      border-color: none;
-    }
+  .page-item.active .page-link {
+    z-index: 5;
+    color: rgb(33, 156, 33);
+    background-color: none;
+    border-color: none;
   }
 }

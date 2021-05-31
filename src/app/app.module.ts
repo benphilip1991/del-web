@@ -20,6 +20,11 @@ import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { MatIconModule } from "@angular/material/icon";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatListModule } from "@angular/material/list";
+import { MatMenuModule } from "@angular/material/menu";
 import { ToastrModule } from 'ngx-toastr';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -29,9 +34,11 @@ import { AppHeaderComponent } from './components/common/header/header.component'
 import { SidebarComponent } from './components/common/sidebar/sidebar.component';
 import { UsersDashboardComponent } from './components/users-dashboard/users-dashboard.component';
 import { AppDashboardComponent } from './components/app-dashboard/app-dashboard.component';
-import { UserProfileDialogueComponent } from './components/common/user-profile-dialogue/user-profile-dialogue.component';
 import { AddUserDialogueComponent } from './components/common/add-user-dialogue/add-user-dialogue.component';
 import { ConfirmationDialogComponent } from './components/common/confirmation-dialog/confirmation-dialog.component';
+import { UserDetailsComponent } from './components/common/user-details/user-details.component';
+import { UserProfileComponent } from './components/common/user-profile/user-profile.component';
+import { UpdateAssignmentComponent } from './components/common/update-assignment/update-assignment.component';
 
 @NgModule({
   imports: [
@@ -49,6 +56,11 @@ import { ConfirmationDialogComponent } from './components/common/confirmation-di
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,  
+    MatMenuModule,
     ToastrModule.forRoot({
     timeOut: 10000,
     positionClass: 'toast-bottom-right',
@@ -56,7 +68,7 @@ import { ConfirmationDialogComponent } from './components/common/confirmation-di
   }),
     FontAwesomeModule,
     RouterModule.forRoot([
-      { path: '', component: LoginComponent }
+      { path: '', component: LoginComponent },
     ])
   ],
   declarations: [
@@ -67,9 +79,11 @@ import { ConfirmationDialogComponent } from './components/common/confirmation-di
     SidebarComponent,
     UsersDashboardComponent,
     AppDashboardComponent,
-    UserProfileDialogueComponent,
     ConfirmationDialogComponent,
-    AddUserDialogueComponent
+    AddUserDialogueComponent,
+    UserDetailsComponent,
+    UserProfileComponent,
+    UpdateAssignmentComponent
   ],
   // Not required if using @Injectable but adding for readability
   providers: [

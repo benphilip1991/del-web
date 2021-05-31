@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+// Fonts
+$font-primary: "Montserrat", sans-serif;
+
+.userDetails {
+  color: #02899b;
+  .close {
+    float: right;
+    background-color: #d81b60;
+    color: #ffff;
+    margin-top: -43px;
+    border-radius: 8px;
+  }
+}
+
+.personalDetails {
+  background-color: #02899b;
+  color: #ffff;
+  width: 100%;
+  height: 39px;
+  text-align: left;
+  padding-left: 10px;
+  padding-top: 9px;
+  border-radius: 10px;
+  font-family: $font-primary;
+}
+
+.medicalHistory {
+  background-color: #02899b;
+  color: #ffff;
+  width: 100%;
+  height: 39px;
+  text-align: left;
+  padding-left: 10px;
+  padding-top: 9px;
+  border-radius: 10px;
+  font-family: $font-primary;
+}
+
+.splitrow {
+  border-radius: 25px;
+  width: 100%;
+  padding: 6px;
+  margin: 10px 0px;
+  border: 1px snow;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px 1px #666;
+}
+
+.space {
+  height: 10px;
+}
+
+.space1 {
+  height: 20px;
+}
+
+.space2 {
+  height: 40px;
+}
+
+.space3 {
+  height: 60px;
+}
+
+.editInput {
+  float: right;
+  margin-left: 30px;
+  text-align: left;
+  padding-left: 15px;
+  border-radius: 6px;
+  font-family: $font-primary;
+}
+
+.editDropDown {
+  float: right;
+  margin-left: 18px;
+  width: 180px;
+  text-align: left;
+  padding-left: 15px;
+  border-radius: 6px;
+  font-family: $font-primary;
+}

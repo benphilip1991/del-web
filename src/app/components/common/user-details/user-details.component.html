@@ -1,0 +1,100 @@
+<h2>User Details</h2>
+<div class="userDetails">
+  <button type="button" class="close" aria-label="Close" mat-dialog-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="personalDetails">
+  <h3>Personal Details</h3>
+</div>
+<div class="space1"></div>
+<div class="splitrow">
+  <div class="space"></div>
+  <table>
+    <tr>
+      <td>
+        <label class="editInput">First name: </label>
+      </td>
+      <td>
+        <input class="editInput" value="{{ user.firstName }}" />
+      </td>
+      <td>
+        <label class="editInput">Gender: </label>
+      </td>
+      <td>
+        <select placeholder="Sex" name="Sex" class="editDropDown" value="{{ user.sex }}">
+          <option value="">{{ user.sex }}</option>
+          <option *ngFor="let sex of userSex" [ngValue]="sex">{{ sex }}</option>
+        </select>
+      </td>
+      <td>
+        <label class="editInput">Blood Group: </label>
+      </td>
+      <td>
+        <input class="editInput" value="N/A" />
+      </td>
+    </tr>
+    <div class="space"></div>
+    <tr>
+      <td>
+        <label class="editInput">Last name: </label>
+      </td>
+      <td>
+        <input class="editInput" value="{{ user.lastName }}" />
+      </td>
+      <td>
+        <label class="editInput">Height: </label>
+      </td>
+      <td>
+        <input class="editInput" value="N/A" />
+      </td>
+    </tr>
+    <div class="space"></div>
+    <tr>
+      <td>
+        <label class="editInput">Date of Birth: </label>
+      </td>
+      <td>
+        <input class="editInput" value="N/A" />
+      </td>
+      <td>
+        <label class="editInput">Weight: </label>
+      </td>
+      <td>
+        <input class="editInput" value="N/A" />
+      </td>
+    </tr>
+    <div class="space2"></div>
+  </table>
+</div>
+<div class="space2"></div>
+<div class="medicalHistory">
+  <h3>Medical History</h3>
+</div>
+<div class="space1"></div>
+<div class="splitrow">
+  <div class="space"></div>
+  <table>
+    <tr>
+      <td>
+        <label class="editInput">Allergies: </label>
+      </td>
+      <td>
+        <input class="editInput" value="N/A" />
+      </td>
+      <td>
+        <label class="editInput">Medical Condition: </label>
+      </td>
+      <td>
+        <input class="editInput" value="N/A" />
+      </td>
+      <td>
+        <label class="editInput">Current Medication: </label>
+      </td>
+      <td>
+        <input class="editInput" value="N/A" />
+      </td>
+    </tr>
+    <div class="space2"></div>
+  </table>
+</div>

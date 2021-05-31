@@ -1,56 +1,97 @@
-import { credentials } from './../../utils/app-constants.utils';
-import { Utils } from '@utils/common.utils';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { delApiServicesToken } from './../../../environments/environment';
-import { Inject, Injectable } from '@angular/core';
-import { map, catchError } from 'rxjs/operators'; 
-import { Observable } from 'rxjs';
+import { credentials } from "./../../utils/app-constants.utils";
+import { Utils } from "@utils/common.utils";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { delApiServicesToken } from "./../../../environments/environment";
+import { Inject, Injectable } from "@angular/core";
+import { map, catchError } from "rxjs/operators";
+import { Observable } from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class UserService {
   constructor(
     @Inject(delApiServicesToken) private delApiServices,
     public utils: Utils,
     private http: HttpClient
-  ) { }
+  ) {}
 
- 
   /**
    * Build the user API endpoint
-   * 
-   * @param userId 
-   * @returns 
+   *
+   * @param userId
+   * @returns
    */
   getApiUrl(userId?: string): string {
-
     let serviceBase = this.delApiServices;
 
-    if(null != userId){
-    return serviceBase.delApiUrl + ':'
-      + serviceBase.delApiPort + '/'
-      + serviceBase.delApiVersion + '/'
-      + serviceBase.userApi + '/'
-      + userId;
-    }
-    else{
-      return serviceBase.delApiUrl + ':'
-      + serviceBase.delApiPort + '/'
-      + serviceBase.delApiVersion + '/'
-      + serviceBase.userApi;
+    if (null != userId) {
+      return (
+        serviceBase.delApiUrl +
+        ":" +
+        serviceBase.delApiPort +
+        "/" +
+        serviceBase.delApiVersion +
+        "/" +
+        serviceBase.userApi +
+        "/" +
+        userId
+      );
+    } else {
+      return (
+        serviceBase.delApiUrl +
+        ":" +
+        serviceBase.delApiPort +
+        "/" +
+        serviceBase.delApiVersion +
+        "/" +
+        serviceBase.userApi
+      );
     }
   }
- 
+
+  getUserApplicationUrl(userId?: string): string {
+    let serviceBase = this.delApiServices;
+
+    if (null != userId) {
+      return (
+        serviceBase.delApiUrl +
+        ":" +
+        serviceBase.delApiPort +
+        "/" +
+        serviceBase.delApiVersion +
+        "/" +
+        serviceBase.userApi +
+        "/" +
+        userId +
+        "/" +
+        serviceBase.userApplication
+      );
+    }
+  }
+
+  getApplicationUrl(): string {
+    let serviceBase = this.delApiServices;
+    return (
+      serviceBase.delApiUrl +
+      ":" +
+      serviceBase.delApiPort +
+      "/" +
+      serviceBase.delApiVersion +
+      "/" +
+      serviceBase.applicationApi
+    );
+  }
+  
   /**
    * Fetch bearer token
-   */ 
-   getAPIHeader(token?: string) {
+   */
+  getAPIHeader(token?: string) {
     let options = {
       headers: new HttpHeaders({
-        'authorization': `Bearer ${token}`
-      })
-    }
+        authorization: `Bearer ${token}`,
+      }),
+    };
     return options;
   }
 
@@ -59,7 +100,6 @@ export class UserService {
    * from the local storage.
    */
   getUserDetails(userId?: string, token?: string): Observable<UserDetails> {
-
     if (null == userId) {
       userId = localStorage.getItem(credentials.USERID);
     }
@@ -67,70 +107,140 @@ export class UserService {
       token = localStorage.getItem(credentials.TOKEN);
     }
 
-    let options = this.getAPIHeader(token);    
+    let options = this.getAPIHeader(token);
 
-    let userObservable = this.http.get<UserDetails>(this.getApiUrl(userId), options)
-      .pipe(map((response) => {
-        return response;
-      }),
-      catchError(this.utils.handleError)  
-    );
+    let userObservable = this.http
+      .get<UserDetails>(this.getApiUrl(userId), options)
+      .pipe(
+        map((response) => {
+          return response;
+        }),
+        catchError(this.utils.handleError)
+      );
     return userObservable;
   }
 
-   /**
+  /**
    *get all user list by giving the bearer token
    */
-  getUserList(token?: string): Observable<UsersList> { 
+  getUserList(token?: string): Observable<UsersList> {
     if (null == token) {
       token = localStorage.getItem(credentials.TOKEN);
     }
 
-    let options = this.getAPIHeader(token);  
+    let options = this.getAPIHeader(token);
 
-    let userObservable = this.http.get<UsersList>(this.getApiUrl(), options)
-      .pipe(map((response) => {
-        return response;
-      }),
-      catchError(this.utils.handleError)  
-    );
+    let userObservable = this.http
+      .get<UsersList>(this.getApiUrl(), options)
+      .pipe(
+        map((response) => {
+          return response;
+        }),
+        catchError(this.utils.handleError)
+      );
     return userObservable;
   }
 
   /**
    * delete the user list from user record
-   */ 
+   */
   removeUser(userId: string, token?: string): Observable<string> {
     if (null == token) {
       token = localStorage.getItem(credentials.TOKEN);
     }
 
-    let options = this.getAPIHeader(token);  
+    let options = this.getAPIHeader(token);
 
-    let userObservable = this.http.delete<string>(this.getApiUrl(userId), options)
-      .pipe(map((response) => {
-        return response;
-      }),
-      catchError(this.utils.handleError)  
-    );
+    let userObservable = this.http
+      .delete<string>(this.getApiUrl(userId), options)
+      .pipe(
+        map((response) => {
+          return response;
+        }),
+        catchError(this.utils.handleError)
+      );
     return userObservable;
   }
   /**
    *adding new user to user list
-   */ 
-   addUserDetails(userDetails: any,token?: string): Observable<any> {
+   */
+  addUserDetails(userDetails: any, token?: string): Observable<any> {
     if (null == token) {
       token = localStorage.getItem(credentials.TOKEN);
     }
 
-    let options =this.getAPIHeader(token);  
+    let options = this.getAPIHeader(token);
 
-    let userObservable = this.http.post<any>(this.getApiUrl(),userDetails, options)
-      .pipe(map((response) => {
-        return response;
-      }),
-      catchError(this.utils.handleError)  
-    );
+    let userObservable = this.http
+      .post<any>(this.getApiUrl(), userDetails, options)
+      .pipe(
+        map((response) => {
+          return response;
+        }),
+        catchError(this.utils.handleError)
+      );
+    return userObservable;
+  }
+
+  /**
+   * get the user application details of user
+   */
+  getApplicationDetails(userId: string,token?: string): Observable<UsersApplications> {
+    if (null == token) {
+      token = localStorage.getItem(credentials.TOKEN);
+    }
+
+    let options = this.getAPIHeader(token);
+
+    let userObservable = this.http
+      .get<UsersApplications>(this.getUserApplicationUrl(userId), options)
+      .pipe(
+        map((response) => {
+          return response;
+        }),
+        catchError(this.utils.handleError)
+      );
+    return userObservable;
+  }
+
+  /**
+   * update  user application detail add or remove
+   */
+  updateApplicationDetail( userId: string, appDetails: string,token?: string): Observable<any> {
+    if (null == token) {
+      token = localStorage.getItem(credentials.TOKEN);
+    }
+
+    let options = this.getAPIHeader(token);
+    let userObservable = this.http
+      .put<any>(this.getUserApplicationUrl(userId), appDetails, options)
+      .pipe(
+        map((response) => {
+          return response;
+        }),
+        catchError(this.utils.handleError)
+      );
+    return userObservable;
+  }
+
+  /**
+   * get application list.
+   */
+  listApplication(token?: string): Observable<listApplications> {
+    if (null == token) {
+      token = localStorage.getItem(credentials.TOKEN);
+    }
+
+    let options = this.getAPIHeader(token);
+
+    let userObservable = this.http
+      .get<listApplications>(this.getApplicationUrl(), options)
+      .pipe(
+        map((response) => {
+          return response;
+        }),
+        catchError(this.utils.handleError)
+      );
     return userObservable;
   }
 }
@@ -139,21 +249,30 @@ export class UserService {
  * User details object
  */
 interface UserDetails {
-
-  _id: string,
-  firstName: string,
-  lastName: string,
-  emailId: string,
-  age: number,
-  sex: string,
-  userRole: string
+  _id: string;
+  firstName: string;
+  lastName: string;
+  emailId: string;
+  age: number;
+  sex: string;
+  userRole: string;
 }
 
 /**
- * 
+ *
  */
 interface UsersList {
-  users: [
-    UserDetails
-  ]
+  users: [UserDetails];
+}
+/**
+ *
+ */
+interface UsersApplications {
+  applications: [UsersApplications];
+}
+/**
+ *Application List
+ */
+interface listApplications {
+  applications: [listApplications];
 }

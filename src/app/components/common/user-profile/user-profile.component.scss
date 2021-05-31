@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+// Fonts
+$font-primary: "Montserrat", sans-serif;
+
+.splitrow {
+  border-radius: 25px;
+  padding: 6px;
+  margin: 10px 0px;
+  border: 1px snow;
+  box-shadow: 1px 1px 1px 1px #666;
+}
+
+.font{
+  font-family: $font-primary;
+}
+
+.tablestyle {
+  float: left;
+  font-family: $font-primary;
+  margin-top: 20px;
+  margin-left: 10px;
+  height: 30px;
+  width: 30%;
+}
+
+.table {
+  margin-top: 2px;
+  margin-right: 2px;
+  min-width: 50%px;
+  max-width: 60%;
+  height: 280px;
+  float: right;
+  margin-left: 2px;
+  padding-right: 200px;
+  margin-inline-end: 30px;
+}
+.table1 {
+  margin-top: 8px;
+  margin-right: 2px;
+  min-width: 50%;
+  max-width: 605;
+  height: 380px;
+  float: right;
+  margin-left: 2px;
+  padding-right: 200px;
+  margin-inline-end: 30px;
+}
+
+.userProfile {
+  width: 390px;
+  height: 550px;
+}
+
+.container {
+  background-color: #02899b;
+  width: 350px;
+  height: 330px;
+  margin-top: 20px;
+  float: right;
+  color: #ffffff;
+  font-family: $font-primary;
+  border-radius: 16px;
+}
+
+.container1 {
+  background-color: #02899b;
+  width: 350px;
+  height: 330px;
+  margin-top: 16px;
+  float: right;
+  color: #ffffff;
+  font-family: $font-primary;
+  border-radius: 16px;
+}
+
+.editTable {
+  margin-top: 20px;
+  font-family: $font-primary;
+}
+
+td {
+  padding: 0px 11px;
+  font-family: $font-primary;
+}
+
+.userDetailsTab {
+  background-color: #ffffff;
+  color: #02899b;
+  margin-top: 12px;
+  text-align: left;
+  padding-left: 10px;
+  border-radius: 10px;
+  width: 300px;
+  font-family: $font-primary;
+  margin-left: 10px;
+}
+
+.assignedApplication {
+  background-color: #ffffff;
+  color: #02899b;
+  font-family: $font-primary;
+  margin-top: 15px;
+  text-align: left;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 1px;
+  width: 300px;
+  margin-left: 25px;
+  border-radius: 10px;
+}
+
+.buttonedituser {
+  background-color: #d81b60;
+  color: #ffffff;
+  margin-top: 15px;
+  width: 300px;
+  margin-left: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  text-align: center;
+  font-family: $font-primary;
+}
+
+.updateAssignment {
+  background-color: #d81b60;
+  color: #ffffff;
+  margin-top: 20px;
+  width: 300px;
+  margin-left: 25px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  text-align: center;
+  font-family: $font-primary;
+}
+
+.onEditDropdown {
+  color: black;
+  background-color: white;
+  -moz-appearance: button-arrow-down;
+  -webkit-appearance: scrollbarbutton-down;
+}
+
+.onEditDropdown::-ms-expand {
+  display: block;
+}
+
+.resize {
+  height: 70px;
+  padding-left: 15px;
+  padding-top: 10px;
+}
+
+.border {
+  background-color: #ffffff;
+  margin-left: 62px;
+  margin-top: 12px;
+  width: 90px;
+  height: 90px;
+  border-radius: 10px;
+  border: 1px snow;
+  box-shadow: 1px 1px 1px 1px #666;
+}
+
+.row {
+  width: 350px;
+  height: 200px;
+  overflow: auto;
+}
+
+.iconName {
+  color: black;
+  padding-left: 20px;
+  font-family: $font-primary;
+  font-size: 10px;
+}
+
+.space {
+  height: 10px;
+  .tablestyle {
+    border: solid;
+    color: brown;
+    background-color: #02899b;
+  }
+}
